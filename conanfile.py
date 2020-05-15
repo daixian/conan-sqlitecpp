@@ -23,8 +23,9 @@ class SQLiteCppConan(ConanFile):
                        }
     # 这里我要使用加密库,目前暂时先沿用wxsqlite3
     # requires = ("sqlite3/3.30.1")
-    requires = ("wxsqlite3/4.6.0@daixian/stable")
-    # requires = ("sqlcipher/4.3.0") #这个库应该是需要编译的时候设置SQLITE_ENABLE_COLUMN_METADATA才会有函数sqlite3_column_origin_name()
+    # requires = ("wxsqlite3/4.6.0@daixian/stable")
+
+    requires = ("sqlcipher/4.3.0@daixian/stable")  # 这个库应该是需要编译的时候设置SQLITE_ENABLE_COLUMN_METADATA才会有函数sqlite3_column_origin_name()
 
     @property
     def _source_subfolder(self):
@@ -66,6 +67,8 @@ class SQLiteCppConan(ConanFile):
         cmake = CMake(self)
         # 必须要定义这个来增加对加密模块的支持的
         cmake.definitions["SQLITE_HAS_CODEC"] = True
+        # cmake.definitions["SQLITE_ENABLE_COLUMN_METADATA"] = True
+
         cmake.definitions["SQLITECPP_INTERNAL_SQLITE"] = False
         cmake.definitions["SQLITECPP_RUN_CPPLINT"] = self.options.lint
         cmake.configure(build_folder=self._build_subfolder)
