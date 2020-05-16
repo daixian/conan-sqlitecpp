@@ -6,8 +6,8 @@
 int main()
 {
     std::cout << "SQLite3 version " << SQLite::VERSION << " (" << SQLite::getLibVersion() << ")" << std::endl;
-    remove("test.db3");//删除存在的文件
-    
+    remove("test.db3"); //删除存在的文件
+
     SQLite::Database db("test.db3", SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
     db.rekey("123456"); //设置加密
     db.exec("DROP TABLE IF EXISTS sys_info");
