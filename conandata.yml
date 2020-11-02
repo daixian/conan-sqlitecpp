@@ -3,7 +3,7 @@ sources:
     url: "https://github.com/SRombauts/SQLiteCpp/archive/2.4.0.tar.gz"
     sha256: "16bf963619786652a60533bcdc71a0412cad1ce132cd09ce43344af6ed7463d9"
   "2.5.0":
-    url: "https://home.xuexuesoft.com:8010/files/src/SQLiteCpp2.5.0.tar.gz"
+    url: "https://home.xuexuesoft.com:8010/github/SQLiteCpp2.5.0.tar.gz"
     sha256: "a598a07626ba0cb8bbad7e2f932f204b645eec5cb83e8cd7f0740fcbcce1ba50"  
 patches:
   "2.4.0":
